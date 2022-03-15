@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signup_project/widget/container_signin.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -11,7 +12,15 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Image.asset('assets/images/fundo.png'),
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          SizedBox(
+            child: Image.asset('assets/images/fundo.png'),
+          ),
+          const ContainerSignin()
+        ],
+      ),
     );
   }
 }
