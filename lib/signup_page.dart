@@ -12,13 +12,19 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
           SizedBox(
             child: Image.asset('assets/images/fundo.png'),
           ),
-          const ContainerSignup()
+          ContainerSignup(
+            tap: (newValue) {
+              setState(() {
+                ContainerSignup().checked = newValue;
+              });
+            },
+          )
         ],
       ),
     );

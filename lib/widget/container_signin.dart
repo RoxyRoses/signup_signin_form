@@ -5,14 +5,16 @@ import '../signup_page.dart';
 class ContainerSignin extends StatelessWidget {
   final height;
   final width;
+  bool? checked;
   final void Function(bool?)? tap;
 
-  const ContainerSignin({
-    Key? key,
-    this.height = 1675,
-    this.width = 1195,
-    this.tap,
-  }) : super(key: key);
+  ContainerSignin(
+      {Key? key,
+      this.height = 1675,
+      this.width = 1195,
+      this.tap,
+      this.checked = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
