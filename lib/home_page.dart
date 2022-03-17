@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signup_project/widget/container_signin.dart';
+import 'package:signup_project/widget/container_signup.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -18,7 +18,10 @@ class _SignInPageState extends State<SignInPage> {
           SizedBox(
             child: Image.asset('assets/images/fundo.png'),
           ),
-          const ContainerSignin()
+          const ContainerSignin(
+            height: 2000,
+            width: 1000,
+          )
         ],
       ),
     );
