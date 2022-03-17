@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:signup_project/home_page.dart';
+import 'package:signup_project/signup_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         [DeviceOrientation.portraitUp]); // bloqueia rotação celular
     return MaterialApp(
       home: const Center(
-        child: SignInPage(),
+        child: SignUpPage(),
       ),
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
