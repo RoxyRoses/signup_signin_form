@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:signup_project/widget/container_signin.dart';
-import 'package:signup_project/widget/container_signup.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -12,6 +11,7 @@ class SigninPage extends StatefulWidget {
 class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Stack(
@@ -20,11 +20,7 @@ class _SigninPageState extends State<SigninPage> {
             child: Image.asset('assets/images/fundo.png'),
           ),
           ContainerSignin(
-            tap: (newValue) {
-              setState(() {
-                ContainerSignin().checked = newValue;
-              });
-            },
+            tap: (newValue) {},
           )
         ],
       ),

@@ -19,11 +19,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Image.asset('assets/images/fundo.png'),
           ),
           ContainerSignup(
-            tap: (newValue) {
-              setState(() {
-                ContainerSignup().checked = newValue;
-              });
-            },
+            tap: (newValue) {},
           )
         ],
       ),

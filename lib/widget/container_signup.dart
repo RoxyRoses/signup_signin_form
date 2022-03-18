@@ -1,95 +1,104 @@
 import 'package:flutter/material.dart';
-import '../signin_page.dart';
+import 'package:signup_project/methods.dart';
+import '../pages/signin_page.dart';
 
-class ContainerSignup extends StatelessWidget {
+class ContainerSignup extends StatefulWidget {
   final height;
   final width;
-  bool? checked;
+  bool checked;
 
-  final void Function(bool?)? tap;
+  final void Function(bool?) tap;
 
   ContainerSignup(
       {Key? key,
       this.height = 1675,
       this.width = 1195,
-      this.tap,
+      required this.tap,
       this.checked = false})
       : super(key: key);
 
   @override
+  State<ContainerSignup> createState() => _ContainerSignupState();
+}
+
+class _ContainerSignupState extends State<ContainerSignup> {
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(top: 150 * size.height / size.height),
+      padding: EdgeInsets.only(top: size.height * 280 / 1195),
       child: Container(
-        height: height * size.height / size.height,
+        height: widget.height * size.height / 1195,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(height * 30 / height),
+          borderRadius:
+              BorderRadius.circular(widget.height * 30 / widget.height),
           color: Colors.white,
         ),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        left: size.width * 124 / width,
-                        top: size.height * 124 / height),
+                        left: size.width * 124 / 1195,
+                        top: size.width * 124 / 1195),
                     child: SizedBox(
                       child: Text(
                         'Get Started',
                         style: TextStyle(
                             color: const Color(0xff445ABC),
-                            fontSize: height / 50,
+                            fontSize: widget.width * 38 / 1195,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: size.height * 80 / height,
+              const SizedBox(
+                height: 50,
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: size.width * 125 / width,
-                    right: size.width * 125 / width),
+                    left: size.width * 125 / 1195,
+                    right: size.width * 125 / 1195),
                 child: Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: TextFormField(
-                    validator: (value) => validateName(value),
+                    validator: (value) => Methods().validateName(value),
                     decoration: const InputDecoration(hintText: 'Name'),
                   ),
                 ),
               ),
-              SizedBox(
-                height: size.height * 50 / height,
+              const SizedBox(
+                height: 10,
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: size.width * 125 / width,
-                    right: size.width * 125 / width),
+                    left: size.width * 125 / 1195,
+                    right: size.width * 125 / 1195),
                 child: Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: TextFormField(
-                    validator: (value) => validateEmail(value),
+                    validator: (value) => Methods().validateEmail(value),
                     decoration: const InputDecoration(hintText: 'E-Mail'),
                   ),
                 ),
               ),
-              SizedBox(
-                height: size.height * 50 / height,
+              const SizedBox(
+                height: 10,
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: size.width * 125 / width,
-                    right: size.width * 125 / width),
+                    left: size.width * 125 / 1195,
+                    right: size.width * 125 / 1195),
                 child: Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: TextFormField(
-                    validator: (value) => validateStructure(value),
+                    validator: (value) => Methods().validateStructure(value),
                     decoration: const InputDecoration(
                       hintText: 'Password',
                     ),
@@ -100,20 +109,25 @@ class ContainerSignup extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      left: size.width * 75 / width,
+                      left: size.width * 75 / 1195,
                     ),
                     child: SizedBox(
                       child: Checkbox(
                         checkColor: Colors.white,
                         activeColor: Colors.blue,
-                        value: checked,
+                        value: widget.checked,
                         shape: const CircleBorder(),
-                        onChanged: tap,
+                        onChanged: (value) {
+                          setState(() {
+                            widget.checked = !widget.checked;
+                          });
+                          widget.tap(value);
+                        },
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: size.width * 75 / width),
+                    padding: EdgeInsets.only(right: size.width * 75 / 1195),
                     child: RichText(
                       text: TextSpan(
                           style: TextStyle(
@@ -138,12 +152,12 @@ class ContainerSignup extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: size.height * 10 / height,
+              const SizedBox(
+                height: 10,
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  left: size.width * 125 / width,
+                  left: size.width * 125 / 1195,
                 ),
                 child: Row(
                   children: [
@@ -152,16 +166,16 @@ class ContainerSignup extends StatelessWidget {
                       style: TextStyle(
                         color: const Color(0XFF3B4EA0),
                         fontWeight: FontWeight.bold,
-                        fontSize: size.height / 30,
+                        fontSize: widget.width * 25 / 1195,
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: size.width * 500 / width),
+                      padding: EdgeInsets.only(left: size.width * 500 / 1195),
                       child: IconButton(
                         icon: const Icon(Icons.arrow_circle_right),
                         color: const Color(0XFF3B4EA0),
                         highlightColor: Colors.grey,
-                        iconSize: size.height * 200 / height,
+                        iconSize: size.width * 200 / 1195,
                         onPressed: () {},
                       ),
                     ),
@@ -172,8 +186,8 @@ class ContainerSignup extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        left: size.width * 125 / width,
-                        right: size.width * 125 / width),
+                        left: size.width * 125 / 1195,
+                        right: size.width * 125 / 1195),
                     child: GestureDetector(
                       onTap: (() {
                         Navigator.push(
@@ -187,7 +201,7 @@ class ContainerSignup extends StatelessWidget {
                           decoration: TextDecoration.underline,
                           color: const Color(0XFF3B4EA0),
                           fontWeight: FontWeight.bold,
-                          fontSize: size.height / 50,
+                          fontSize: widget.width * 15 / 1195,
                         ),
                       ),
                     ),
@@ -199,37 +213,5 @@ class ContainerSignup extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String? validateEmail(String? value) {
-    String pattern =
-        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
-        r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
-        r"{0,253}[a-zA-Z0-9])?)*$";
-    RegExp regex = RegExp(pattern);
-    if (value == null || value.isEmpty || !regex.hasMatch(value)) {
-      return 'Enter a valid email address';
-    } else {
-      return null;
-    }
-  }
-
-  String? validateStructure(String? value) {
-    String pattern =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-    RegExp regex = RegExp(pattern);
-    if (value == null || value.isEmpty || !regex.hasMatch(value)) {
-      return 'Enter a valid password';
-    } else {
-      return null;
-    }
-  }
-
-  String? validateName(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Enter a valid name';
-    } else {
-      return null;
-    }
   }
 }
