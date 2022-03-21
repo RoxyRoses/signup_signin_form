@@ -25,9 +25,8 @@ class _ContainerSigninState extends State<ContainerSignin> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    bool _checked = false;
     return Padding(
-      padding: EdgeInsets.only(top: size.height * 280 / 1195),
+      padding: EdgeInsets.only(top: size.height * 330 / 1195),
       child: Stack(
         children: [
           Container(
@@ -41,7 +40,6 @@ class _ContainerSigninState extends State<ContainerSignin> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [

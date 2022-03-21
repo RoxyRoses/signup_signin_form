@@ -26,7 +26,7 @@ class _ContainerSignupState extends State<ContainerSignup> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(top: size.height * 280 / 1195),
+      padding: EdgeInsets.only(top: size.height * 330 / 1195),
       child: Container(
         height: widget.height * size.height / 1195,
         decoration: BoxDecoration(
@@ -38,7 +38,6 @@ class _ContainerSignupState extends State<ContainerSignup> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
